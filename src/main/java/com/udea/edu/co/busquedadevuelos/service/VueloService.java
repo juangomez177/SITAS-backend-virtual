@@ -5,6 +5,7 @@ import com.udea.edu.co.busquedadevuelos.repository.VueloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,5 +29,23 @@ public class VueloService {
 
     public void deleteVuelo(Long id) {
         vueloRepository.deleteById(id);
+    }
+
+    public List<Vuelo> getByOrigenAndDestino(String origen, String destino) {
+        return vueloRepository.findByOrigenAndDestino(origen, destino);
+    }
+
+    public List<Vuelo> getByFechaSalidaBetween(Timestamp fechaInicio, Timestamp fechaFin) {
+        return vueloRepository.findByFechaSalidaBetween(fechaInicio, fechaFin);
+    }
+
+    public List<Vuelo> getByPrecioBetween(Double precioMin, Double precioMax) {
+        return vueloRepository.findByPrecioBetween(precioMin, precioMax);
+    }
+
+    public List<Vuelo> getByHoraSalidaBetweenAndHoraLlegadaBetween(Timestamp horaSalidaMin, Timestamp horaSalidaMax,
+                                                                    Timestamp horaLlegadaMin, Timestamp horaLlegadaMax) {
+        return vueloRepository.findByFechaSalidaBetweenAndFechaLlegadaBetween(horaSalidaMin, horaSalidaMax,
+                                                                              horaLlegadaMin, horaLlegadaMax);
     }
 }
