@@ -1,13 +1,13 @@
-package com.udea.edu.co.busquedadevuelos;
+package com.udea.edu.co.busquedadevuelos.backendvirtual;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BusquedadevuelosApplication {
+public class BackendVirtualApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BusquedadevuelosApplication.class, args);
+		SpringApplication.run(BackendVirtualApplication.class, args);
 	}
 
 }
