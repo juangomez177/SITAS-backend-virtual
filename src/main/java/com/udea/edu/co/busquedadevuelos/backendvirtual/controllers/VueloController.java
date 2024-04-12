@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/vuelos")
 public class VueloController {
     
     private final VueloService vueloService;
@@ -23,7 +23,7 @@ public class VueloController {
         this.vueloService = vueloService;
     }
 
-    @GetMapping("vuelos")
+    @GetMapping("listar")
     public ResponseEntity<List<Vuelo>> getAllflights(){
         var vuelos = vueloService.getAllflights();
         return ResponseEntity.ok(vuelos);

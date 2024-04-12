@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("api/aeropuertos")
 public class AeropuertosController {
     
 
@@ -26,7 +26,7 @@ public class AeropuertosController {
     }
 
 
-    @GetMapping("aeropuertos")
+    @GetMapping("listar")
     public ResponseEntity<List<Aeropuerto>> getAirports() {
         var aeropuertos = aeropuertoService.findAeropuerto();
         return ResponseEntity.ok(aeropuertos);
