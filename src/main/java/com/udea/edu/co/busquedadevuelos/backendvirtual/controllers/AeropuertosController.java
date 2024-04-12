@@ -32,6 +32,11 @@ public class AeropuertosController {
         return ResponseEntity.ok(aeropuertos);
     }
     
-
+    @GetMapping("aeropuertosCiudad")
+    public ResponseEntity<List<Aeropuerto>> getMethodName(@RequestParam String nombre) {
+        var aeropuertos = aeropuertoService.findAeropuertoByNombre(nombre);
+        return ResponseEntity.ok(aeropuertos);
+    }
+    
     
 }

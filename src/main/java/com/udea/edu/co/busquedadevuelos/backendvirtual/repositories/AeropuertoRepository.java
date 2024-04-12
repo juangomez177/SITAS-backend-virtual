@@ -9,6 +9,7 @@ import com.udea.edu.co.busquedadevuelos.backendvirtual.entities.Aeropuerto;
 
 @Repository
 public interface AeropuertoRepository extends JpaRepository<Aeropuerto, Integer> {
-    //List<Aeropuerto> findAeropuerto(String nombreAeropuerto);
-    //List<Aeropuerto> findAeropuerto();
+
+    List<Aeropuerto> findAeropuertoByNombre(String nombre);
+    
 }

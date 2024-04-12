@@ -1,5 +1,6 @@
 package com.udea.edu.co.busquedadevuelos.backendvirtual.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,18 @@ public class AeropuertoService {
     }
 
     public List<Aeropuerto> findAeropuerto() {
-        //List<Aeropuerto> aeropuertos = aeropuertoRepository.findAll();
         return aeropuertoRepository.findAll();
+    }
+
+    public List<Aeropuerto> findAeropuertoByNombre(String nombre) {
+        List<Aeropuerto> aeropuertos = aeropuertoRepository.findAll();
+        List<Aeropuerto> listAeropuertos = new ArrayList<>();
+        for (Aeropuerto aeropuerto : aeropuertos) {
+            if(aeropuerto.getNombre().equals(nombre)){
+                listAeropuertos.add(aeropuerto);
+            }
+        }
+        return listAeropuertos;
     }
 
 }
