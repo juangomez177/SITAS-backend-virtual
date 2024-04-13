@@ -19,8 +19,8 @@ public class AeropuertoService {
         this.aeropuertoRepository = aeropuertoRepository;
     }
 
-    public List<Aeropuerto> findAeropuerto() {
-        return aeropuertoRepository.findAll();
+    public List<Object> findAeropuerto() {
+        return aeropuertoRepository.listAeropuertos();
     }
 
     public List<Aeropuerto> findAeropuertoByNombre(String nombre) {

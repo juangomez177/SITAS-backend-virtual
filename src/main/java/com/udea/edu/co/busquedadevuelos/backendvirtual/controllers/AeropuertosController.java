@@ -27,7 +27,7 @@ public class AeropuertosController {
 
 
     @GetMapping("listar")
-    public ResponseEntity<List<Aeropuerto>> getAirports() {
+    public ResponseEntity<List<Object>> getAirports() {
         var aeropuertos = aeropuertoService.findAeropuerto();
         return ResponseEntity.ok(aeropuertos);
     }
