@@ -23,15 +23,9 @@ public class AeropuertoService {
         return aeropuertoRepository.listAeropuertos();
     }
 
-    public List<Aeropuerto> findAeropuertoByNombre(String nombre) {
-        List<Aeropuerto> aeropuertos = aeropuertoRepository.findAll();
-        List<Aeropuerto> listAeropuertos = new ArrayList<>();
-        for (Aeropuerto aeropuerto : aeropuertos) {
-            if(aeropuerto.getNombre().equals(nombre)){
-                listAeropuertos.add(aeropuerto);
-            }
-        }
-        return listAeropuertos;
+    public List<Object> findAeropuertoByNombre(String nombre) {
+        List<Object> aeropuertos = aeropuertoRepository.findAeropuertoByNombre(nombre);
+        return aeropuertos;
     }
 
 }

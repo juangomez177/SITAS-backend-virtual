@@ -17,6 +17,11 @@ public interface AeropuertoRepository extends JpaRepository<Aeropuerto, Integer>
            "INNER JOIN c.pais p")
     List<Object> listAeropuertos();       
 
-    List<Aeropuerto> findAeropuertoByNombre(String nombre);
+    @Query("SELECT a.id AS id_aeropuerto, a.nombre AS nombre_aeropuerto, c.nombre AS nombre_ciudad, p.nombre AS nombre_pais " +
+       "FROM Aeropuerto a " +
+       "INNER JOIN a.ciudad c " +
+       "INNER JOIN c.pais p " +
+       "WHERE DBMS_LOB.SUBSTR(a.nombre, 4000, 1) = ?1")
+    List<Object> findAeropuertoByNombre(String nombreAeropuerto);
     
 }
