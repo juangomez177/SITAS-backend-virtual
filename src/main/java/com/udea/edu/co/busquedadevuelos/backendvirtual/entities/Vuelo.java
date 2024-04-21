@@ -1,12 +1,9 @@
 package com.udea.edu.co.busquedadevuelos.backendvirtual.entities;
 
-import java.sql.Timestamp;
 
-
+import java.util.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -15,35 +12,39 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "vuelos")
 public class Vuelo {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_vuelo", nullable = false)
     private Long id;
-
-    @Column(name = "numero_vuelo", nullable = false)
-    private String numeroVuelo;
 
     @Column(name = "tipo_vuelo", nullable = false)
     private String tipoVuelo;
 
-    @Column(name = "id_aeropuerto_destino", nullable = false)
-    private Long idAeropuertoDestino;
+    @Column(name = "codigo_aeropuerto_origen", nullable = false)
+    private String idAeropuertoDestino;
 
-    @Column(name = "id_aeropuerto_origen", nullable = false)
-    private Long idAeropuertoOrigen;
+    @Column(name = "codigo_aeropuerto_destino", nullable = false)
+    private String idAeropuertoOrigen;
 
-    @Column(name = "id_tipo_avion", nullable = false)
+    @Column(name = "id_tipo_aeronave", nullable = false)
     private Long idTipoAvion;
 
     @Column(name = "fecha_salida")
-    private Timestamp fechaSalida;
+    private Date fechaSalida;
 
     @Column(name = "fecha_llegada")
-    private Timestamp fechaLlegada;
+    private Date fechaLlegada;
+
+    @Column(name = "hora_salida", nullable = false)
+    private String horaSalida;
+
+    @Column(name = "hora_llegada", nullable = false)
+    private String horaLlegada;
 
     @Column(name = "precio", nullable = false)
     private Double precio;
 
-    @Column(name = "cantidad_pasajeros", nullable = false)
+    @Column(name = "cantidad_max_pasajeros", nullable = false)
     private Integer cantidadPasajeros;
 
     @Column(name = "sobretasa", nullable = false)
@@ -53,12 +54,16 @@ public class Vuelo {
     private Double porcentajeImpuestos;
 
     @ManyToOne
-    @JoinColumn(name = "id_aeropuerto_destino", insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_aeropuerto_origen", insertable = false, updatable = false)
     private Aeropuerto destino;
 
     @ManyToOne
-    @JoinColumn(name = "id_aeropuerto_origen", insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_aeropuerto_destino", insertable = false, updatable = false)
     private Aeropuerto origen;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_aeronave", insertable = false, updatable = false)
+    private TipoAeronave tipoAeronave;
 
     
     // Getters y Setters
@@ -70,14 +75,6 @@ public class Vuelo {
         this.id = id;
     }
 
-    public String getNumeroVuelo() {
-        return numeroVuelo;
-    }
-
-    public void setNumeroVuelo(String numeroVuelo) {
-        this.numeroVuelo = numeroVuelo;
-    }
-
     public String getTipoVuelo() {
         return tipoVuelo;
     }
@@ -86,19 +83,19 @@ public class Vuelo {
         this.tipoVuelo = tipoVuelo;
     }
 
-    public Long getIdAeropuertoDestino() {
+    public String getIdAeropuertoDestino() {
         return idAeropuertoDestino;
     }
 
-    public void setIdAeropuertoDestino(Long idAeropuertoDestino) {
+    public void setIdAeropuertoDestino(String idAeropuertoDestino) {
         this.idAeropuertoDestino = idAeropuertoDestino;
     }
 
-    public Long getIdAeropuertoOrigen() {
+    public String getIdAeropuertoOrigen() {
         return idAeropuertoOrigen;
     }
 
-    public void setIdAeropuertoOrigen(Long idAeropuertoOrigen) {
+    public void setIdAeropuertoOrigen(String idAeropuertoOrigen) {
         this.idAeropuertoOrigen = idAeropuertoOrigen;
     }
 
@@ -110,19 +107,19 @@ public class Vuelo {
         this.idTipoAvion = idTipoAvion;
     }
 
-    public Timestamp getFechaSalida() {
+    public Date getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(Timestamp fechaSalida) {
+    public void setFechaSalida(Date fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
 
-    public Timestamp getFechaLlegada() {
+    public Date getFechaLlegada() {
         return fechaLlegada;
     }
 
-    public void setFechaLlegada(Timestamp fechaLlegada) {
+    public void setFechaLlegada(Date fechaLlegada) {
         this.fechaLlegada = fechaLlegada;
     }
 

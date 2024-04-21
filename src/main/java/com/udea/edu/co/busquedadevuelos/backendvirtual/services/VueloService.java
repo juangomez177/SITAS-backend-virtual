@@ -2,6 +2,7 @@ package com.udea.edu.co.busquedadevuelos.backendvirtual.services;
 
 
 import java.util.List;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import org.springframework.stereotype.Service;
@@ -32,11 +33,8 @@ public class VueloService {
         return vueloRepository.findAllById(ids);
     }
 
-    public List<Vuelo> listarVuelosIdaVuelta() {
-        // Implementa la lógica para obtener los vuelos de ida y vuelta
-        // Por ejemplo, podrías filtrar los vuelos por fecha de llegada igual a la fecha de salida más un día
-        LocalDateTime fechaLlegada = LocalDateTime.now().plusDays(1); // Suponiendo que hoy es la fecha de salida
-        return vueloRepository.findByFechaLlegada(fechaLlegada);
+    public List<Vuelo> findVuelosByFechaSalidaAndAeropuertos(){
+        return vueloRepository.findAll();
     }
 
 }

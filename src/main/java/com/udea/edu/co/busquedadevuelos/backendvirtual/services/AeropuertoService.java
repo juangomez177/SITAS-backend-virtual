@@ -19,11 +19,11 @@ public class AeropuertoService {
         this.aeropuertoRepository = aeropuertoRepository;
     }
 
-    public List<Object> findAeropuerto() {
+    public List<Object> listAeropuertos() {
         return aeropuertoRepository.listAeropuertos();
     }
 
-    public List<Object> findAeropuertoByNombre(String nombre) {
+    public List<Object> findAeropuerto(String nombre) {
         List<Object> aeropuertos = aeropuertoRepository.findAeropuertoByNombre(nombre);
         return aeropuertos;
     }

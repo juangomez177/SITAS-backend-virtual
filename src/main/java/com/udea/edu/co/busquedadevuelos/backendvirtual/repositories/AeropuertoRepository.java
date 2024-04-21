@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.entities.Aeropuerto;
 
 @Repository
-public interface AeropuertoRepository extends JpaRepository<Aeropuerto, Integer> {
+public interface AeropuertoRepository extends JpaRepository<Aeropuerto, String> {
 
     @Query("SELECT a.id AS id_aeropuerto, a.nombre AS nombre_aeropuerto, c.nombre AS nombre_ciudad, p.nombre AS nombre_pais " +
            "FROM Aeropuerto a " +
@@ -17,11 +17,11 @@ public interface AeropuertoRepository extends JpaRepository<Aeropuerto, Integer>
            "INNER JOIN c.pais p")
     List<Object> listAeropuertos();       
 
-    @Query("SELECT a.id AS id_aeropuerto, a.nombre AS nombre_aeropuerto, c.nombre AS nombre_ciudad, p.nombre AS nombre_pais " +
+    @Query("SELECT a.codigoIata AS codigo_iata, a.nombre AS nombre_aeropuerto, c.nombre AS nombre_ciudad, p.nombre AS nombre_pais " +
        "FROM Aeropuerto a " +
        "INNER JOIN a.ciudad c " +
        "INNER JOIN c.pais p " +
-       "WHERE DBMS_LOB.SUBSTR(a.nombre, 4000, 1) = ?1")
+       "WHERE a.nombre = ?1")
     List<Object> findAeropuertoByNombre(String nombreAeropuerto);
     
 }

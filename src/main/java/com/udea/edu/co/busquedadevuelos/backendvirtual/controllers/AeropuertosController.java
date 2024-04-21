@@ -28,13 +28,13 @@ public class AeropuertosController {
 
     @GetMapping("listar")
     public ResponseEntity<List<Object>> getAirports() {
-        var aeropuertos = aeropuertoService.findAeropuerto();
+        var aeropuertos = aeropuertoService.listAeropuertos();
         return ResponseEntity.ok(aeropuertos);
     }
     
-    @GetMapping("aeropuertosCiudad")
+    @GetMapping("listarPorNombre")
     public ResponseEntity<List<Object>> getMethodName(@RequestParam String nombre) {
-        var aeropuertos = aeropuertoService.findAeropuertoByNombre(nombre);
+        var aeropuertos = aeropuertoService.findAeropuerto(nombre);
         return ResponseEntity.ok(aeropuertos);
     }
     

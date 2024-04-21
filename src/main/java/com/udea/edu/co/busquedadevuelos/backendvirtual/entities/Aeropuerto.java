@@ -2,8 +2,6 @@ package com.udea.edu.co.busquedadevuelos.backendvirtual.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -12,9 +10,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "aeropuertos")
 public class Aeropuerto {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "codigo_iata", nullable = false)
+    private String codigoIata;
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
@@ -28,12 +27,12 @@ public class Aeropuerto {
 
     
     // Getters y Setters
-    public Long getId() {
-        return id;
+    public String getId() {
+        return codigoIata;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(String codigoIata) {
+        this.codigoIata = codigoIata;
     }
 
     public String getNombre() {
