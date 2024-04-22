@@ -20,11 +20,11 @@ public class Vuelo {
     @Column(name = "tipo_vuelo", nullable = false)
     private String tipoVuelo;
 
-    @Column(name = "codigo_aeropuerto_destino", nullable = false)
-    private String idAeropuertoDestino;
-
     @Column(name = "codigo_aeropuerto_origen", nullable = false)
     private String idAeropuertoOrigen;
+
+    @Column(name = "codigo_aeropuerto_destino", nullable = false)
+    private String idAeropuertoDestino;
 
     @Column(name = "id_tipo_aeronave", nullable = false)
     private Long idTipoAvion;
@@ -54,12 +54,12 @@ public class Vuelo {
     private Double porcentajeImpuestos;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_aeropuerto_destino", insertable = false, updatable = false)
-    private Aeropuerto destino;
-
-    @ManyToOne
     @JoinColumn(name = "codigo_aeropuerto_origen", insertable = false, updatable = false)
     private Aeropuerto origen;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_aeropuerto_destino", insertable = false, updatable = false)
+    private Aeropuerto destino;
 
     @ManyToOne
     @JoinColumn(name = "id_tipo_aeronave", insertable = false, updatable = false)
@@ -68,13 +68,13 @@ public class Vuelo {
     
     // Getters y Setters
 
-    public Vuelo(String id, String tipoVuelo, String idAeropuertoDestino, String idAeropuertoOrigen, Long idTipoAvion,
+    public Vuelo(String id, String tipoVuelo, String idAeropuertoOrigen, String idAeropuertoDestino, Long idTipoAvion,
             Date fechaSalida, Date fechaLlegada, String horaSalida, String horaLlegada, Double precio,
             Integer cantidadPasajeros, Double sobretasa, Double porcentajeImpuestos) {
         this.id = id;
         this.tipoVuelo = tipoVuelo;
-        this.idAeropuertoDestino = idAeropuertoDestino;
         this.idAeropuertoOrigen = idAeropuertoOrigen;
+        this.idAeropuertoDestino = idAeropuertoDestino;
         this.idTipoAvion = idTipoAvion;
         this.fechaSalida = fechaSalida;
         this.fechaLlegada = fechaLlegada;

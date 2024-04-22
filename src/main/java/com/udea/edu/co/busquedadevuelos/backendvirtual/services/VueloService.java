@@ -2,6 +2,7 @@ package com.udea.edu.co.busquedadevuelos.backendvirtual.services;
 
 
 import java.util.List;
+import java.sql.Date;
 import java.util.Collections;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +32,8 @@ public class VueloService {
         return vueloRepository.findAllById(ids);
     }
 
-    public List<Vuelo> findVuelosByFechaSalidaAndAeropuertos(){
-        return vueloRepository.findVuelosByFechaSalidaAndAeropuertos();
+    public List<Vuelo> findVuelosByFechaSalidaAndAeropuertos(String codigoAeropuertoOrigen, String codigoAeropuertoDestino, Date fechaSalida){
+        return vueloRepository.findVuelosByFechaSalidaAndAeropuertos(codigoAeropuertoOrigen, codigoAeropuertoDestino, fechaSalida);
     }
 
 }

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.entities.Vuelo;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.services.VueloService;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -37,8 +38,10 @@ public class VueloController {
     }
 
     @GetMapping("/vuelos-ida")
-    public ResponseEntity<List<Vuelo>> findVuelosByFechaSalidaAndAeropuertos() {
-        List<Vuelo> vuelos = vueloService.findVuelosByFechaSalidaAndAeropuertos();
+    public ResponseEntity<List<Vuelo>> findVuelosByFechaSalidaAndAeropuertos(@RequestParam String origen,
+                                                                             @RequestParam String destino,
+                                                                             @RequestParam Date fechaSalida) {
+        List<Vuelo> vuelos = vueloService.findVuelosByFechaSalidaAndAeropuertos(origen, destino, fechaSalida);
         return ResponseEntity.ok(vuelos);
     }
 }
