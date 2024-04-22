@@ -27,6 +27,16 @@ public class Aeropuerto {
 
     
     // Getters y Setters
+
+    public Aeropuerto(String codigoIata, String nombre, Long idCiudad) {
+        this.codigoIata = codigoIata;
+        this.nombre = nombre;
+        this.idCiudad = idCiudad;
+    }
+
+    public Aeropuerto() {
+    }
+
     public String getId() {
         return codigoIata;
     }

@@ -32,6 +32,16 @@ public class Pais {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Pais(Long id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
+
+    public Pais() {
     }    
+
+    
 }
 

@@ -1,7 +1,7 @@
 package com.udea.edu.co.busquedadevuelos.backendvirtual.entities;
 
 
-import java.util.Date;
+import java.sql.Date;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,24 +15,24 @@ public class Vuelo {
     
     @Id
     @Column(name = "id_vuelo", nullable = false)
-    private Long id;
+    private String id;
 
     @Column(name = "tipo_vuelo", nullable = false)
     private String tipoVuelo;
 
-    @Column(name = "codigo_aeropuerto_origen", nullable = false)
+    @Column(name = "codigo_aeropuerto_destino", nullable = false)
     private String idAeropuertoDestino;
 
-    @Column(name = "codigo_aeropuerto_destino", nullable = false)
+    @Column(name = "codigo_aeropuerto_origen", nullable = false)
     private String idAeropuertoOrigen;
 
     @Column(name = "id_tipo_aeronave", nullable = false)
     private Long idTipoAvion;
 
-    @Column(name = "fecha_salida")
+    @Column(name = "fecha_salida", nullable = false)
     private Date fechaSalida;
 
-    @Column(name = "fecha_llegada")
+    @Column(name = "fecha_llegada", nullable = false)
     private Date fechaLlegada;
 
     @Column(name = "hora_salida", nullable = false)
@@ -54,11 +54,11 @@ public class Vuelo {
     private Double porcentajeImpuestos;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_aeropuerto_origen", insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_aeropuerto_destino", insertable = false, updatable = false)
     private Aeropuerto destino;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_aeropuerto_destino", insertable = false, updatable = false)
+    @JoinColumn(name = "codigo_aeropuerto_origen", insertable = false, updatable = false)
     private Aeropuerto origen;
 
     @ManyToOne
@@ -67,11 +67,33 @@ public class Vuelo {
 
     
     // Getters y Setters
-    public Long getId() {
+
+    public Vuelo(String id, String tipoVuelo, String idAeropuertoDestino, String idAeropuertoOrigen, Long idTipoAvion,
+            Date fechaSalida, Date fechaLlegada, String horaSalida, String horaLlegada, Double precio,
+            Integer cantidadPasajeros, Double sobretasa, Double porcentajeImpuestos) {
+        this.id = id;
+        this.tipoVuelo = tipoVuelo;
+        this.idAeropuertoDestino = idAeropuertoDestino;
+        this.idAeropuertoOrigen = idAeropuertoOrigen;
+        this.idTipoAvion = idTipoAvion;
+        this.fechaSalida = fechaSalida;
+        this.fechaLlegada = fechaLlegada;
+        this.horaSalida = horaSalida;
+        this.horaLlegada = horaLlegada;
+        this.precio = precio;
+        this.cantidadPasajeros = cantidadPasajeros;
+        this.sobretasa = sobretasa;
+        this.porcentajeImpuestos = porcentajeImpuestos;
+    }
+
+    public Vuelo() {
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

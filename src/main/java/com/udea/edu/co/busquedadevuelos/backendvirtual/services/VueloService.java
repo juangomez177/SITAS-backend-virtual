@@ -26,13 +26,13 @@ public class VueloService {
         return vuelos;
     }
 
-    public List<Vuelo> listarVuelosPorId(Long id) {
-        List<Integer> ids = Collections.singletonList(id.intValue());
+    public List<Vuelo> listarVuelosPorId(String id) {
+        List<String> ids = Collections.singletonList(id);
         return vueloRepository.findAllById(ids);
     }
 
     public List<Vuelo> findVuelosByFechaSalidaAndAeropuertos(){
-        return vueloRepository.findAll();
+        return vueloRepository.findVuelosByFechaSalidaAndAeropuertos();
     }
 
 }

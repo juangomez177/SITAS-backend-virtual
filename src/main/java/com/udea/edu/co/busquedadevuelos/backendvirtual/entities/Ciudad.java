@@ -28,6 +28,9 @@ public class Ciudad {
 
     
     // Getters y Setters
+
+
+
     public Long getId() {
         return id;
     }
@@ -51,6 +54,17 @@ public class Ciudad {
     public void setIdPais(Long idPais) {
         this.idPais = idPais;
     }
+
+    public Ciudad(Long id, String nombre, Long idPais) {
+        this.id = id;
+        this.nombre = nombre;
+        this.idPais = idPais;
+    }
+
+    public Ciudad() {
+    }
+
+    
 
 }
 

@@ -31,15 +31,13 @@ public class VueloController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<Vuelo>> getFlightsById(@PathVariable Long id) {
+    public ResponseEntity<List<Vuelo>> getFlightsById(@PathVariable String id) {
         List<Vuelo> vuelos = vueloService.listarVuelosPorId(id);
         return ResponseEntity.ok(vuelos);
     }
 
     @GetMapping("/vuelos-ida")
-    public ResponseEntity<List<Vuelo>> findVuelosByFechaSalidaAndAeropuertos(@RequestParam String fechaSalida, 
-                                                                              @RequestParam String nombreAeropuertoOrigen, 
-                                                                              @RequestParam String nombreAeropuertoDestino) {
+    public ResponseEntity<List<Vuelo>> findVuelosByFechaSalidaAndAeropuertos() {
         List<Vuelo> vuelos = vueloService.findVuelosByFechaSalidaAndAeropuertos();
         return ResponseEntity.ok(vuelos);
     }

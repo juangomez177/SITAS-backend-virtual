@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "aeropuertos")
+@Table(name = "tipo_aeronave")
 public class TipoAeronave {
     
     @Id
@@ -46,4 +46,15 @@ public class TipoAeronave {
     public void setCanMaximaAsientos(Integer canMaximaAsientos) {
         this.canMaximaAsientos = canMaximaAsientos;
     }
+
+    public TipoAeronave(Long id, String tipo, Integer canMaximaAsientos) {
+        this.id = id;
+        this.tipo = tipo;
+        this.canMaximaAsientos = canMaximaAsientos;
+    }
+
+    public TipoAeronave() {
+    }
+
+    
 }

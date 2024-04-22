@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.udea.edu.co.busquedadevuelos.backendvirtual.entities.Ciudad;
 
 @Repository
-public interface CiudadRepository extends JpaRepository<Ciudad, Integer> {
+public interface CiudadRepository extends JpaRepository<Ciudad, Long> {
     
 }

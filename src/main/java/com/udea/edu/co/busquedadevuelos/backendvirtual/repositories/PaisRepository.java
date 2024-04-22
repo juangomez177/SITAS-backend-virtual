@@ -6,6 +6,6 @@ import com.udea.edu.co.busquedadevuelos.backendvirtual.entities.Pais;
 
 
 @Repository
-public interface PaisRepository extends JpaRepository<Pais, Integer> {
+public interface PaisRepository extends JpaRepository<Pais, Long> {
 
 }
