@@ -32,8 +32,8 @@ public class VueloService {
         return vueloRepository.findAllById(ids);
     }
 
-    public List<Vuelo> findVuelosByFechaSalidaAndAeropuertos(String codigoAeropuertoOrigen, String codigoAeropuertoDestino, Date fechaSalida){
-        return vueloRepository.findVuelosByFechaSalidaAndAeropuertos(codigoAeropuertoOrigen, codigoAeropuertoDestino, fechaSalida);
+    public List<Vuelo> findVuelosIda(String codigoAeropuertoOrigen, String codigoAeropuertoDestino, Date fechaSalida){
+        return vueloRepository.findVuelosIda(codigoAeropuertoOrigen, codigoAeropuertoDestino, fechaSalida);
     }
 
 }
