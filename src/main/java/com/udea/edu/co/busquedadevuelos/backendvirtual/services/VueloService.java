@@ -23,8 +23,7 @@ public class VueloService {
     }
 
     public List<Vuelo> getAllflights(){
-        var vuelos = vueloRepository.findAll();
-        return vuelos;
+        return vueloRepository.getAllflights();
     }
 
     public List<Vuelo> listarVuelosPorId(String id) {

@@ -14,6 +14,9 @@ import com.udea.edu.co.busquedadevuelos.backendvirtual.entities.Vuelo;
 public interface VueloRepository extends JpaRepository<Vuelo, String> {
 
     @Query("SELECT v FROM Vuelo v " +
+       "WHERE v.fechaSalida > CURRENT_DATE")
+    List<Vuelo> getAllflights();
+    @Query("SELECT v FROM Vuelo v " +
        "WHERE v.idAeropuertoOrigen = ?1 " +
        "AND v.idAeropuertoDestino = ?2 " +
        "AND v.fechaSalida = ?3")

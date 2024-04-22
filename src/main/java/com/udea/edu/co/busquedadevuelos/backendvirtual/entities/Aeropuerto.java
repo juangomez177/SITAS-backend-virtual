@@ -60,5 +60,15 @@ public class Aeropuerto {
     public void setIdCiudad(Long idCiudad) {
         this.idCiudad = idCiudad;
     }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    
     
 }
