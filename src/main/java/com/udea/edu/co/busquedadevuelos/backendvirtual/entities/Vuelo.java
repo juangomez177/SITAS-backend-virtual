@@ -145,6 +145,22 @@ public class Vuelo {
         this.fechaLlegada = fechaLlegada;
     }
 
+    public String getHoraSalida() {
+        return horaSalida;
+    }
+
+    public void setHoraSalida(String horaSalida) {
+        this.horaSalida = horaSalida;
+    }
+
+    public String getHoraLlegada() {
+        return horaLlegada;
+    }
+
+    public void setHoraLlegada(String horaLlegada) {
+        this.horaLlegada = horaLlegada;
+    }
+
     public Double getPrecio() {
         return precio;
     }
@@ -175,6 +191,30 @@ public class Vuelo {
 
     public void setPorcentajeImpuestos(Double porcentajeImpuestos) {
         this.porcentajeImpuestos = porcentajeImpuestos;
+    }
+
+    public Aeropuerto getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(Aeropuerto origen) {
+        this.origen = origen;
+    }
+
+    public Aeropuerto getDestino() {
+        return destino;
+    }
+
+    public void setDestino(Aeropuerto destino) {
+        this.destino = destino;
+    }
+
+    public TipoAeronave getTipoAeronave() {
+        return tipoAeronave;
+    }
+
+    public void setTipoAeronave(TipoAeronave tipoAeronave) {
+        this.tipoAeronave = tipoAeronave;
     }
 
 }

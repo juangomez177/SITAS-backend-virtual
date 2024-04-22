@@ -39,9 +39,18 @@ public class VueloController {
 
     @GetMapping("/vuelos-ida")
     public ResponseEntity<List<Vuelo>> findVuelosIda(@RequestParam String origen,
-                                                                             @RequestParam String destino,
-                                                                             @RequestParam Date fechaSalida) {
+                                                     @RequestParam String destino,
+                                                     @RequestParam Date fechaSalida) {
         List<Vuelo> vuelos = vueloService.findVuelosIda(origen, destino, fechaSalida);
+        return ResponseEntity.ok(vuelos);
+    }
+
+    @GetMapping("/vuelos-ida-vuelta")
+    public ResponseEntity<List<Vuelo>> findVuelosIdaVuelta(@RequestParam String origen,
+                                                           @RequestParam String destino,
+                                                           @RequestParam Date fechaSalida,
+                                                           @RequestParam Date fechaLlegada) {
+        List<Vuelo> vuelos = vueloService.findVuelosIdaVuelta(origen, destino, fechaSalida, fechaLlegada);
         return ResponseEntity.ok(vuelos);
     }
 }

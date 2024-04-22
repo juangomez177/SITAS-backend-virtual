@@ -36,4 +36,8 @@ public class VueloService {
         return vueloRepository.findVuelosIda(codigoAeropuertoOrigen, codigoAeropuertoDestino, fechaSalida);
     }
 
+    public List<Vuelo> findVuelosIdaVuelta(String codigoAeropuertoOrigen, String codigoAeropuertoDestino, Date fechaSalida, Date fechaLlegada){
+        return vueloRepository.findVuelosIdaVuelta(codigoAeropuertoOrigen, codigoAeropuertoDestino, fechaLlegada, fechaLlegada);
+    }
+
 }

@@ -23,6 +23,6 @@ public interface VueloRepository extends JpaRepository<Vuelo, String> {
        "WHERE v.idAeropuertoOrigen = ?1 " +
        "AND v.idAeropuertoDestino = ?2 " +
        "AND v.fechaSalida = ?3")
-    List<Vuelo> findVuelosByFechaSalidaAndAeropuertos(String codigoAeropuertoOrigen, String codigoAeropuertoDestino, Date fechaSalida);
+    List<Vuelo> findVuelosIdaVuelta(String codigoAeropuertoOrigen, String codigoAeropuertoDestino, Date fechaSalida, Date fechaLlegada);
 
 }
