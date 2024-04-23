@@ -8,6 +8,7 @@ import com.udea.edu.co.busquedadevuelos.backendvirtual.services.AeropuertoServic
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,14 +29,22 @@ public class AeropuertosController {
 
     @GetMapping("listar")
     public ResponseEntity<List<Object>> getAirports() {
-        var aeropuertos = aeropuertoService.listAeropuertos();
-        return ResponseEntity.ok(aeropuertos);
+        try {
+            List<Object> aeropuertos = aeropuertoService.listAeropuertos();
+            return ResponseEntity.ok(aeropuertos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
     
     @GetMapping("listarPorNombre")
     public ResponseEntity<List<Object>> getMethodName(@RequestParam String nombre) {
-        var aeropuertos = aeropuertoService.findAeropuerto(nombre);
-        return ResponseEntity.ok(aeropuertos);
+        try {
+            List<Object> aeropuertos = aeropuertoService.findAeropuerto(nombre);
+            return ResponseEntity.ok(aeropuertos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
     
     
