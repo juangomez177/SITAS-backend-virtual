@@ -31,6 +31,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-sonar
 
+    - name: Grant execute permission to gradlew
+      run: chmod +x ./gradlew
+
     - name: SonarQube Scan
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
