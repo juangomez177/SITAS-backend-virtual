@@ -7,11 +7,10 @@ plugins {
 
 sonar {
 	properties {
-	property "sonar.projectKey", "2024-1_modulo-atutenticacion-autorizacion"
-	property "sonar.organization", System.getenv("SONAR_ORGANIZATION")
-	property "sonar.host.url", "https://sonarcloud.io"
-	property "sonar.login", System.getenv("SONAR_TOKEN")
-	}
+	    property "sonar.projectKey", "2024-1_modulo-atutenticacion-autorizacion"
+	    property "sonar.organization", "2024-1"
+	    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 	
 group = 'com.'
