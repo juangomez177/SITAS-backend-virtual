@@ -3,10 +3,10 @@ name: SonarCloud Analysis
 on:
   push:
     branches:
-      - auth
+      - master
   pull_request:
     branches:
-      - auth
+      - master
 
 jobs:
   sonarcloud:
@@ -37,4 +37,4 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
       run: |
-        ./gradlew sonarqube -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=$SONAR_ORGANIZATION
+        ./gradlew sonarqube
