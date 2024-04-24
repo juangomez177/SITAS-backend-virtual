@@ -10,9 +10,19 @@ sonar {
 	    property "sonar.projectKey", "2024-1_modulo-atutenticacion-autorizacion"
 	    property "sonar.organization", "2024-1"
 	    property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.branch.name", getBranchName()
   }
 }
-	
+
+String getBranchName() {
+    def branch = System.getenv("GITHUB_REF")
+    if (branch.startsWith("refs/heads/")) {
+        return branch.substring("refs/heads/".length())
+    } else {
+        return "main" 
+    }
+}
+
 group = 'com.'
 version = '0.0.1-SNAPSHOT'
 
